@@ -1,10 +1,10 @@
 package top.yang.concurrence;
 
+import top.yang.concurrence.impl.CallableImpl;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-import top.yang.concurrence.impl.CallableImpl;
 
-public class SynchronizedTest {
+public class FutureTest {
 
     public static synchronized void test() {
 

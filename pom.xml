@@ -17,10 +17,9 @@
     <module>atomic-webmagic</module>
     <module>atomic-datastructure</module>
     <module>atomic-utils</module>
+    <module>atomic-net</module>
+    <module>atomic-base</module>
   </modules>
-  <dependencies>
-
-  </dependencies>
   <build>
     <pluginManagement>
       <plugins>

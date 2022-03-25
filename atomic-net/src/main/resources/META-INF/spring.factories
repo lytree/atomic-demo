@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  top.yang.net.autoconfigure.RetrofitAutoConfiguration,\
+    top.yang.net.autoconfigure.OkHttpClientAutoConfiguration
