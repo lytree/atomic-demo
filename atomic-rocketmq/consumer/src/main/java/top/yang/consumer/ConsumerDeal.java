@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-@RocketMQMessageListener(topic = "${rocketmq.consumer.topic}", consumerGroup = "${rocketmq.consumer.group}", selectorExpression = "*",                   // 3.tag：设置为 * 时，表示全部。
-        messageModel = MessageModel.BROADCASTING)
+@RocketMQMessageListener(consumerGroup = "${rocketmq.consumer.group}", topic = "${rocketmq.consumer.topic}")
 public class ConsumerDeal implements RocketMQListener<String> {
 
     private static final Logger logger = LoggerFactory.getLogger(ConsumerDeal.class);

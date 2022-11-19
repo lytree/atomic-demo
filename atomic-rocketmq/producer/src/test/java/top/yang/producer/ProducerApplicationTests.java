@@ -1,7 +1,9 @@
 package top.yang.producer;
 
+import java.nio.charset.StandardCharsets;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
+import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +44,9 @@ class ProducerApplicationTests {
      * 异步消息
      */
     @Test
-    public void asyncSend() {
+    public void asyncSend() throws InterruptedException {
         String json = "异步消息";
-        SendCallback callback = new SendCallback() {
+        rocketMQTemplate.asyncSend("order-paid-topic", json, new SendCallback() {
             @Override
             public void onSuccess(SendResult sendResult) {
                 System.out.println("123");
@@ -54,8 +56,9 @@ class ProducerApplicationTests {
             public void onException(Throwable throwable) {
                 System.out.println("456");
             }
-        };
-        rocketMQTemplate.asyncSend("sendMessage", json, callback);
+        }, 10000);
+
+        Thread.sleep(10000);
     }
 
     /**
