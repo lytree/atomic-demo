@@ -8,42 +8,22 @@
     <groupId>top.lytree</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>atomic-rocketmq</artifactId>
+  <groupId>top.yang.top.yang.elasticsearch</groupId>
+  <artifactId>atomic-top.yang.elasticsearch</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>atomic-rocketmq</name>
-  <description>atomic-rocketmq</description>
-  <packaging>pom</packaging>
+  <name>atomic-top.yang.elasticsearch</name>
+  <description>atomic-top.yang.elasticsearch</description>
   <properties>
-    <java.version>8</java.version>
+    <java.version>11</java.version>
   </properties>
-  <modules>
-    <module>producer</module>
-    <module>consumer</module>
-  </modules>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.rocketmq</groupId>
-      <artifactId>rocketmq-spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <scope>runtime</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-configuration-processor</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <optional>true</optional>
+      <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -57,14 +37,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-            </exclude>
-          </excludes>
-        </configuration>
       </plugin>
     </plugins>
   </build>
