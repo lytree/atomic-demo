@@ -7,9 +7,9 @@
     <groupId>top.lytree</groupId>
     <version>1.0</version>
   </parent>
-  <artifactId>atomic-demo</artifactId>
+  <artifactId>atomic-example</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>atomic-demo</name>
+  <name>atomic-example</name>
   <packaging>pom</packaging>
 
   <modules>
@@ -17,6 +17,8 @@
     <module>atomic-webmagic</module>
     <module>atomic-utils</module>
     <module>atomic-base</module>
+    <module>atomic-elasticsearch</module>
+    <module>atomic-rocketmq</module>
   </modules>
   <build>
     <pluginManagement>
