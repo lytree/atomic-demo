@@ -18,7 +18,6 @@
     <module>atomic-utils</module>
     <module>atomic-base</module>
     <module>atomic-elasticsearch</module>
-    <module>atomic-rocketmq</module>
   </modules>
   <build>
     <pluginManagement>
