@@ -10,6 +10,7 @@ import com.influxdb.client.domain.WritePrecision;
 import com.influxdb.client.write.Point;
 import com.influxdb.query.FluxTable;
 import com.influxdb.query.InfluxQLQueryResult;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -73,12 +74,31 @@ public class InfluxDBClientTest {
             for (int i = 0;i<10000000;i++){
                 Point point = new Point("test_write_point");
 
-                point.time(System.nanoTime(), WritePrecision.NS);
-                point.addField("value",i);
-
+                point.time(System.currentTimeMillis(), WritePrecision.MS);
+                point.addField("test", RandomUtils.nextDouble(10,16));
+                point.addField("test1", RandomUtils.nextDouble(10,16));
+                point.addField("test2", RandomUtils.nextDouble(10,16));
                 writeApiBlocking.writePoint(point);
             }
 
+        }
+    }
+    @Test
+    public void query1(){
+
+        try (InfluxDBClient influxDBClient = influxDBManager.getInfluxDbClient()){
+
+            InfluxQLQuery influxQLQuery = new InfluxQLQuery("select * from test_write_point","telegrafs");
+
+            InfluxQLQueryResult query = influxDBClient.getInfluxQLQueryApi().query(influxQLQuery);
+            // 处理查询结果
+            query.getResults().forEach(resultObj -> {
+
+                resultObj.getSeries().forEach(series -> {
+                    System.out.println(JSONObject.toJSONString(series.getColumns()));
+                    System.out.println( JSONObject.toJSONString(series.getValues()));
+                });
+            });
         }
     }
 }

@@ -13,7 +13,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>atomic-web</module>
     <module>atomic-webmagic</module>
     <module>atomic-utils</module>
     <module>atomic-base</module>
