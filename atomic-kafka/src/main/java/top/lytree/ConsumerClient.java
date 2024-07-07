@@ -2,6 +2,7 @@ package top.lytree;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Properties;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -26,7 +27,7 @@ public class ConsumerClient {
         //1. 创建一个消费者客户端(设置配置文件)
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         //2. 消费者订阅主题列表
-        consumer.subscribe(Arrays.asList(TOPIC_NAME));
+        consumer.subscribe(Collections.singletonList(TOPIC_NAME));
 
         while (true) {
             //3. poll() API是拉取消息的长轮询
