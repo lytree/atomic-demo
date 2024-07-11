@@ -6,7 +6,7 @@
   <parent>
     <artifactId>atomic-example</artifactId>
     <groupId>top.lytree</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
   </parent>
   <groupId>atomic-elasticsearch</groupId>
   <artifactId>atomic-elasticsearch</artifactId>
@@ -14,7 +14,7 @@
   <name>atomic-elasticsearch</name>
   <description>atomic-elasticsearch</description>
   <properties>
-    <java.version>8</java.version>
+    <java.version>21</java.version>
   </properties>
   <dependencies>
     <dependency>
@@ -24,6 +24,17 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>commons-codec</artifactId>
+          <groupId>commons-codec</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.17.0</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
