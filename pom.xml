@@ -21,6 +21,7 @@
         <module>atomic-grpc</module>
         <module>atomic-influxdb</module>
         <module>atomin-minio</module>
+        <module>atomic-consul</module>
     </modules>
     <build>
         <pluginManagement>
